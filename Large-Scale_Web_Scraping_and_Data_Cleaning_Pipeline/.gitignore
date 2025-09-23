@@ -3,3 +3,10 @@ __pycache__/
 *.pyo
 *.log
 .DS_Store
+
+# Ignore everything in the folder
+deliveries/*
+deliveries_pre_check/*
+# But keep this placeholder file
+!deliveries/.gitkeep
+!deliveries_pre_check/.gitkeep
