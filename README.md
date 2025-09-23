@@ -39,10 +39,8 @@ Designed to collect, clean, and validate structured data (e.g., recipes, article
   - Merge outputs into large JSONL files (`merge_jsonl.py`)
   - Audit trail with `clean.jsonl` and `rejected.jsonl`
 
----
-
 ## 📂 Project Structure
-
+```
 Large-Scale_Web_Scraping&Data_Cleaning_Pipeline/
 │── deliveries/ # (removed) final deliveries for client
 │── deliveries_pre_check/ # (removed) preview HTML files
@@ -69,7 +67,8 @@ Large-Scale_Web_Scraping&Data_Cleaning_Pipeline/
 │ └── merge_jsonl.py # merge JSONL outputs
 │── requirements.txt
 └── README.md
----
+```
+
 ## ⚡️ Quick Start
 
 ### 1. Install dependencies
