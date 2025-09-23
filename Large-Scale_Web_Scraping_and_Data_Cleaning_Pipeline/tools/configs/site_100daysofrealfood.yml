@@ -1,0 +1,54 @@
+domain: 100daysofrealfood.com
+
+sitemap_urls:
+  - https://www.100daysofrealfood.com/sitemap_index.xml
+  - https://www.100daysofrealfood.com/sitemap.xml
+
+index_urls: []
+
+allow_url_patterns:
+  - ^https?://(www\.)?100daysofrealfood\.com/\d{4}/\d{2}/[^/#?]+/?$
+  - ^https?://(www\.)?100daysofrealfood\.com/recipe/[^/#?]+/?$
+  - ^https?://(www\.)?100daysofrealfood\.com/[^/#?]+-recipe/?$
+
+deny_url_patterns:
+  - ^https?://(www\.)?100daysofrealfood\.com/(category|tag|about|contact|shop|privacy|comment|comments|faq|faqs|disclosure)/?
+  - ^https?://(www\.)?100daysofrealfood\.com/(page|recipes|recipe-index|all-recipes)(/|$)
+  - ^https?://(www\.)?100daysofrealfood\.com/.+[#?].*$
+  - ^https?://(www\.)?100daysofrealfood\.com/wp-json/.*
+
+selectors:
+  title:
+    - meta[property="og:title"]::attr(content)
+    - h1.entry-title
+    - h1
+
+  image:
+    - meta[property="og:image"]::attr(content)
+    - .wprm-recipe-image img::attr(src)
+    - .tasty-recipes img::attr(src)
+    - article .post-thumbnail img::attr(src)
+
+  ingredients:
+    - .wprm-recipe-ingredients
+    - .tasty-recipes-ingredients
+    - .recipe-card-ingredients
+    - [itemprop="recipeIngredient"]
+
+  instructions:
+    - .wprm-recipe-instructions
+    - .tasty-recipes-instructions
+    - .recipe-card-instructions
+    - [itemprop="recipeInstructions"]
+
+  notes:
+    - .wprm-recipe-notes
+    - .tasty-recipes-notes
+    - .recipe-card-notes
+
+  data_info:
+    type: Recipe/HowTo
+
+  content_info:
+    domain: Cooking
+    subdomain: Recipes

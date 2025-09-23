@@ -1,0 +1,20 @@
+domain: culinaryhill.com
+discover:
+  index_pages: []
+  sitemap: true
+  sitemap_url: https://culinaryhill.com/sitemap_index.xml
+  allow:
+    - /^https?://(www\.)?culinaryhill\.com/.*/
+  deny: []
+selectors:
+  title: .wprm-recipe-name
+  image: .wprm-recipe-image
+  ingredients: .wprm-recipe-ingredients-container :not(.wprm-recipe-adjustable-servings-container):not(.wprm-recipe-block-container):not(.wprm-unit-conversion-container)
+  instructions: .wprm-recipe-instructions-container
+  notes: .wprm-recipe-notes-container
+meta:
+  type: Recipe/HowTo
+  domain: Cooking
+  subdomain: Recipes
+  delivery_version: V1.0
+  collector: joy
