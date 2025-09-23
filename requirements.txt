@@ -1,0 +1,17 @@
+# Core scraping
+selenium>=4.10.0
+requests>=2.31.0
+
+# Data handling
+PyYAML>=6.0.1
+openpyxl>=3.1.2     # for Excel output if you save .xlsx
+pandas>=2.0.3       # optional, useful for JSONL/Excel handling
+
+# Validation & preview
+beautifulsoup4>=4.12.2   # HTML parsing / cleaning
+lxml>=4.9.3              # fast HTML parser backend
+jinja2>=3.1.2            # optional, if preview tool renders HTML templates
+
+# Logging / utilities
+tqdm>=4.66.1             # progress bar
+regex>=2023.10.3         # enhanced regex for cleaning

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pyo
+*.log
+deliveries/
+deliveries_pre_check/
+.DS_Store
