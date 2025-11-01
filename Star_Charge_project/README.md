@@ -20,29 +20,30 @@ This repository contains all scripts and logic used to:
 ## 🧭 Pipeline
 
 ```mermaid
-flowchart TD
-A[Raw station data from app] --> B[dedupe_reindex.py]
-B --> C[enrich_year_investment.py]
-C --> D[fix_partners_from_source.py]
-D --> E[translate_ev_columns_mt.py]
-E --> F[Final Excel (CN+EN)]
-```
+graph TD
+    A[Raw station data from app] --> B[dedupe_reindex.py]
+    B --> C[enrich_year_investment.py]
+    C --> D[fix_partners_from_source.py]
+    D --> E[translate_ev_columns_mt.py]
+    E --> F[Final Excel (CN+EN)]
 
 ---
 
 ## 🗂️ Repo Structure
 
 ```
+
 .
-├── dedupe_reindex.py                 # Remove duplicates & rebuild A:ID as 1..N
-├── enrich_year_investment.py         # Fill Year operational / Investment via web search
-├── fix_partners_from_source.py       # Normalize partner/company names
-├── station_metadata_enrichment.py    # Search engine helpers & extraction rules
-├── translate_company_auto.py         # Company name mapping / fallback translation
-├── translate_ev_columns_mt.py        # Translate B/D/E/F with bracket rules & cache
+├── dedupe_reindex.py # Remove duplicates & rebuild A:ID as 1..N
+├── enrich_year_investment.py # Fill Year operational / Investment via web search
+├── fix_partners_from_source.py # Normalize partner/company names
+├── station_metadata_enrichment.py # Search engine helpers & extraction rules
+├── translate_company_auto.py # Company name mapping / fallback translation
+├── translate_ev_columns_mt.py # Translate B/D/E/F with bracket rules & cache
 ├── requirements.txt
 └── README.md
-```
+
+````
 
 ---
 
@@ -58,7 +59,7 @@ python -m venv .venv
 
 # (2) Install dependencies
 pip install -r requirements.txt
-```
+````
 
 > Optional: create a `.env` in the project root to store keys safely:
 >
@@ -130,7 +131,7 @@ python translate_ev_columns_mt.py   --excel 03_enriched.xlsx --sheet StarCharge 
 
 ---
 
-🧠 Lessons Learned
+## 🧠 Lessons Learned
 
 Verified app-level data access feasibility (certificate and API validation).
 
