@@ -75,17 +75,21 @@ pip install -r requirements.txt
 Assume your working Excel file is `Upwork_truck_charging_2.xlsx` and the target sheet is `StarCharge` (adjust as needed).
 
 ### 1) Deduplicate & Reindex IDs
+
 ```bash
 python dedupe_reindex.py --excel Upwork_truck_charging_2.xlsx --sheet StarCharge --out 01_deduped.xlsx
 ```
 
 ### 2) (Optional) Partner Name Normalization
+
 ```bash
 python fix_partners_from_source.py --excel 01_deduped.xlsx --sheet StarCharge --out 02_partners_fixed.xlsx
 ```
 
 ### 3) Enrich Year Operational & Investment
+
 Two backends are supported:
+
 - `--backend selenium --engine bing` (no API key; slower)
 - or `--backend serpapi --engine google` (faster, requires SERPAPI key)
 
@@ -98,6 +102,7 @@ python enrich_year_investment.py   --excel 02_partners_fixed.xlsx --sheet StarCh
 ```
 
 ### 4) Translate B/D/E/F (Station name, Partners, Province, City/County)
+
 - Defaults to **Google** via `deep-translator`
 - Optional Youdao keys if configured
 - Caches company mappings to reduce lookups
@@ -115,13 +120,23 @@ python translate_ev_columns_mt.py   --excel 03_enriched.xlsx --sheet StarCharge 
 - **Rate limiting**: When using search backends, the scripts include light throttling; tweak sleeps if you hit captchas.
 - **Determinism**: If public sources disagree, the script leaves fields blank (conservative default).
 - **Idempotency**: Safe to re‑run—outputs are written to new files so your source data remains unchanged.
-- **Confidentiality**: The repo contains *only code*; delivery data should remain private unless anonymized.
+- **Confidentiality**: The repo contains _only code_; delivery data should remain private unless anonymized.
 
 ---
 
 ## 🧰 Tech Stack
 
 `Python` · `pandas` · `openpyxl` · `requests` · `selenium` · `deep-translator` · `pypinyin` · `SerpAPI` · `BeautifulSoup4` · `lxml`
+
+---
+
+🧠 Lessons Learned
+
+Verified app-level data access feasibility (certificate and API validation).
+
+Developed robust fallback between automated and manual workflows.
+
+Designed a repeatable bilingual data pipeline for future EV or infrastructure datasets.
 
 ---
 
