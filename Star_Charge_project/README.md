@@ -26,6 +26,7 @@ graph TD
     C --> D[fix_partners_from_source.py]
     D --> E[translate_ev_columns_mt.py]
     E --> F[Final Excel (CN+EN)]
+```
 
 ---
 
@@ -43,7 +44,7 @@ graph TD
 ├── requirements.txt
 └── README.md
 
-````
+```
 
 ---
 
@@ -59,7 +60,7 @@ python -m venv .venv
 
 # (2) Install dependencies
 pip install -r requirements.txt
-````
+```
 
 > Optional: create a `.env` in the project root to store keys safely:
 >
