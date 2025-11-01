@@ -1,0 +1,37 @@
+# Default configuration for Douyin Comment Extractor
+runtime:
+  headless: false
+  polite_mode: true
+  max_concurrency: 2
+  screenshot_on_error: true
+
+input:
+  excel_path: "data/input.xlsx"
+  sheet_name: null
+  url_column_candidates: ["Link1", "URL", "Url"]
+  content_column_candidates: ["Content", "Text", "Title"]
+  segmented_column_candidates: ["content_segmented", "Segmented", "Keywords"]
+
+search_backfill:
+  # enabled: false
+  enabled: true
+  min_match_score: 85
+  max_candidates: 5
+  engine: "douyin_web"
+
+extraction:
+  rank_preference: "hot"
+  top_n_comments: 200
+  grab_replies: true
+  max_replies_per_parent: 5
+  like_threshold: null
+
+output:
+  dir: "data/output"
+  format: "csv"
+  aggregate_filename: "douyin_comments.csv"
+  failed_filename: "failed_urls.csv"
+  backfill_report_filename: "search_backfill_report.csv"
+
+legal:
+  disclaimer: "For authorized academic research only. Respect platform terms. Use polite mode for minimal impact."

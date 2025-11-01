@@ -1,0 +1,8 @@
+
+pandas>=2.1.0
+openpyxl>=3.1.2
+playwright>=1.48.0
+pydantic>=2.8.0
+pyyaml>=6.0.2
+rapidfuzz>=3.9.6
+loguru>=0.7.2
