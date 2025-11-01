@@ -25,7 +25,7 @@ graph TD
     B --> C[enrich_year_investment.py]
     C --> D[fix_partners_from_source.py]
     D --> E[translate_ev_columns_mt.py]
-    E --> F[Final Excel (CN+EN)]
+    E --> F[Final Excel - CN & EN]
 ```
 
 ---
