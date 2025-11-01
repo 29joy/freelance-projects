@@ -1,0 +1,52 @@
+python dedupe_reindex.py `
+ --excel .\Upwork_truck_charging_2_chinese.xlsx `
+ --sheet "StarCharge" `
+ --out .\Upwork_truck_charging_2_chinese_quchong.xlsx
+
+
+# Selenium 模式（无 SerpAPI Key）先小样本：
+python enrich_year_investment.py `
+  --excel .\Upwork_truck_charging_2_all_data_from_joy_20251001.xlsx `
+  --sheet "StarCharge" `
+  --out .\Upwork_truck_charging_2_all_data_from_joy_20251001_add_two.xlsx `
+  --backend selenium --engine bing `
+  --limit 50
+# SerpAPI 模式（更稳，推荐）：
+
+set SERPAPI_API_KEY=你的key
+python enrich_year_investment.py `
+  --excel .\YOUR_INPUT.xlsx `
+  --sheet "StarCharge" `
+  --out .\YOUR_OUTPUT.xlsx `
+  --backend serpapi `
+  --limit 50
+
+
+# 方案A：无 SerpAPI Key（Selenium + Bing）
+python translate_company_auto.py `
+  --excel .\Upwork_truck_charging_2_all_data_from_joy_20251001.xlsx `
+  --sheet "StarCharge" `
+  --out .\Upwork_truck_charging_2_all_data_from_joy_20251001_translate.xlsx `
+  --backend selenium --engine bing
+
+# 方案B：有 SerpAPI Key（推荐）
+set SERPAPI_API_KEY=你的key
+python translate_company_auto.py ^
+  --excel .\YOUR_INPUT.xlsx ^
+  --sheet "sample" ^
+  --out .\YOUR_OUTPUT.xlsx ^
+  --backend serpapi
+
+
+
+python fix_partners_from_source.py `
+  --src_cn .\Upwork_truck_charging_2_all_data_from_joy_20251001.xlsx --src_sheet "StarCharge" `
+  --dst_en .\Upwork_truck_charging_2_all_data_from_joy_20251001_translate.xlsx --dst_sheet "StarCharge" `
+  --out .\Upwork_truck_charging_2_all_data_from_joy_20251001_translate_update_D.xlsx.xlsx
+
+
+python translate_ev_columns_mt.py `
+  --excel ./Upwork_truck_charging_2_all_data_from_joy_20251001.xlsx `
+  --sheet "StarCharge" `
+  --out ./translated_v2.xlsx `
+  --cache company_cache.json

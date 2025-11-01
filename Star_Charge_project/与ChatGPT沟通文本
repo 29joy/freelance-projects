@@ -1,0 +1,41 @@
+1、我刚才和客户的对话如下
+Chengyue Jiao 8:28 PM
+Quick update: I validated nationwide access and heavy-truck filtering in the app. I’m now testing whether structured data can be extracted (API/H5), and in parallel preparing a fallback OCR pipeline. I’ll confirm within 24 hours whether semi-automation is feasible. If yes, I’ll deliver within one week; if not, I’ll proceed manually and deliver in 8–10 days with the same data quality standards.
+Maynie Yun Ling Yang 9:19 PM
+Cool thanks!
+目前看客户对我的印象应该还是不错的
+2、我希望你为我撰写给客户的最新回复，其中包括
+1）我们尝试了哪些方法、如何尝试的，最终得到了Star Charge APP 拒绝用户 CA的结论，
+并且如果继续尝试用更加复杂的方法实现自动抓取还需要2-3天的时间进行验证，验证时间比起整体的抓取时间来说成本可能也过高了
+所以在客户未委托我的情况下我就不进行进一步的验证了
+2）那么我如果接单或者我单纯为客户进行推荐的话，抓取的最好方案就是OCR APP截图的方式来进行数据抓取，大约一周内可完成
+3）如果OCR的方式不可靠，还可以通过完全人工手动填写的方式来实现，大约需要8-10天
+4）另外，无论采用哪种方法都有几个问题需要先和客户沟通清楚，我抓取的几乎全部数据将来源于星星充电官方APP
+A.以下字段可以保证抓取并 OCR 提取
+Station name: 站点名称
+Companies: 站点运营公司
+Partners: 合作伙伴
+Province	City/County
+Type ：站点类型
+Total number of chargers: 充电桩数量------>要确定有多少个不重复的充电桩，有的充电桩有多个充电枪
+Total number of connectors: 充电枪数量------>就是终端列表显示的那个数量
+Power of charger: 充电终端最大功率（千瓦）
+Flat tariffs: 平段电价
+Peak tariffs: 高峰电价
+Off-peak tariffs: 低谷电价
+Source
+B.以下字段会尝试从新闻/公众号/网页补充，但覆盖率不保证
+Number of vehicle bays: 停车位数量
+Year operational: 投运年
+Investment: 站点项目总投资额（元）
+C.以下字段为特定于换电站的字段，若 APP 未公开，我会留白
+Number of spare batteries: 换电站备用电池总数量（满电电池加上正在充电的电池）
+Power in site: 站点电力容量（千瓦）
+On site storage: 站点储能容量（千瓦时）
+On site power generation: 站点发电量（兆瓦）
+On site solar: 站点光伏装机（千瓦）
+D.以下字段会人工通过站点图片和评论来推断，但覆盖率不保证
+Interoperable with passenger EVs? Yes (Y) or No (N) 站点是否可以兼容电动乘用车和轻型商用车
+以上，如果客户觉得我可以胜任并对这个交付结果满意请和我联系
+
+
